@@ -1,4 +1,4 @@
-from .decode import decode_jwt
+from user.api.decode import decode_jwt
 from user.models import MyUser
 from django.http import JsonResponse
 from rest_framework import status
