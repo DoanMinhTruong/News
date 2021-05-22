@@ -4,12 +4,12 @@ from django.http import JsonResponse, HttpResponse
 from rest_framework import status
 from django.forms import model_to_dict
 class ListBlog(APIView):
-    def get(self, request , pk = None):
+    def get(self, request , id = None):
         try:
-            if(pk):
-                obj = Blog.objects.get(id = pk)
+            if(id):
+                obj = Blog.objects.get(id = id)
                 return JsonResponse(model_to_dict(obj))
-            if(pk == None):
+            if(id == None):
                 return JsonResponse(list(Blog.objects.all().values()), safe=False)
             return JsonResponse({
                     "message" :"dont have any blogs"
